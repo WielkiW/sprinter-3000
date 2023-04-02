@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Edit Story</title>
+</head>
+
+<body>
+    <h1>Edit User Story</h1><br>
+    <form action="{{ url_for('route_edit_result') }}" method="post">
+        <label>Id:<br>
+            <input type="number" required name="id" value="{{ result.id }}">
+        </label>
+        <br><br>
+        <label>Story Title:<br>
+            <input type="text" minlength="5" required name="storytitle" value="{{ result.title }}">
+        </label>
+        <br><br>
+        <label>User Story:<br>
+            <textarea rows="4" cols="50" required name="userstory">{{ result.user_story }}</textarea>
+        </label>
+        <br><br>
+        <label>Acceptance Criteria:<br>
+            <textarea rows="4" cols="50" required name="acceptancecriteria">{{ result.acceptance_criteria }}</textarea>
+        </label>
+        <br><br>
+        <label>Business value:<br>
+            <input type="number" min="100" max="1500" name="businessvalue" value="{{ result.business_value }}">
+        </label>
+        <br><br>
+        <label>Estimation:<br>
+            <input type="number" min="0.5" max="40" name="estimation" value="{{ result.estimation }}">
+        </label>
+        <br><br>
+        <label>Status<br>
+            <select name="status" id="status_selector">
+                    <option value="planning" >planning</option>
+                    <option value="todo" >todo</option>
+                    <option value="in progress" >in progress</option>
+                    <option value="review" >review</option>
+                    <option value="done" >done</option>
+            </select>
+        </label><br><br>
+        <input type="submit" value="Update User Story">
+    </form>
+</body>
+</html>
